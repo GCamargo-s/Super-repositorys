@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alphanumeric Test</title>
+</head>
+<body>
+
+<script>
+function alphanumeric(string) {
+  var palavraAlterada = string.toUpperCase();
+
+  if (palavraAlterada == "") {
+    return false;
+  }
+  for (i = 0; i < palavraAlterada.length; i++) {
+
+    if (palavraAlterada[i] >= "A" && palavraAlterada[i] <= "Z") {
+    } else {
+      if (palavraAlterada[i] >= "0" && palavraAlterada[i] <= "9") {
+      } else {
+        console.log(" false");
+        return false;
+      }
+    }
+  }
+  console.log(" true");
+  return true;
+}
+
+function testAlphanumeric() {
+  var results = document.getElementById("results");
+  results.innerHTML = "";
+
+  var strings = ["Mazinkaiser", "hello world_", "PassW0rd", "     "];
+  strings.forEach(function(string) {
+    var result = alphanumeric(string);
+    var listItem = document.createElement("li");
+    listItem.textContent = string + ": " + (result ? "true" : "false");
+    results.appendChild(listItem);
+  });
+}
+</script>
+
+<h1>Alphanumeric Test Results</h1>
+
+<ul id="results">
+</ul>
+
+<button onclick="testAlphanumeric()">Run Test</button>
+
+</body>
+</html>
